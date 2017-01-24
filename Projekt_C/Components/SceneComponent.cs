@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Projekt_C.Klassen;            //Ordnerverweis
 
-namespace Projekt_C
+namespace Projekt_C.Components
 {
 	internal class SceneComponent : DrawableGameComponent
 	{
-		private SpriteBatch spriteBatch; 	/// Braucht man für jegliche Art von Darstellung
-		private Texture2D pixel;			/// Nutzt der SpriteBatch
-		private Game1 game;
+		private readonly Game1 game;		// Für spätere Serveranbindung. Verhindert Manipulation (Private für online)
+		private SpriteBatch spriteBatch; 	// Braucht man für jegliche Art von Darstellung
+		private Texture2D pixel;			// Nutzt der SpriteBatch
 
 		public SceneComponent (Game1 game) : base(game)
 		{
@@ -26,29 +27,60 @@ namespace Projekt_C
 
 		public override void Draw(GameTime gameTime)
 		{
+			//Hintergrundfarbe
 			GraphicsDevice.Clear(Color.Black);
 
-			int width = GraphicsDevice.Viewport.Width - 20;
-			int height = GraphicsDevice.Viewport.Height - 20;
+			// Erste Ebene erstellen (Area, World: Müssen in Klassen spezifiziert werden)
+			Area area = game.Simulation.World.Areas[0];
+
+			// Skalierungsfaktor für eine Vollbild-Darstellung der Area ausrechnen
+			float scaleX = (GraphicsDevice.Viewport.Width - 20) / area.Width;
+			float scaleY = (GraphicsDevice.Viewport.Height - 20) / area.Height;
 
 			spriteBatch.Begin();
 
-			spriteBatch.Draw(pixel, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, 10), Color.DarkGray);
-			spriteBatch.Draw(pixel, new Rectangle(0, GraphicsDevice.Viewport.Height - 10, GraphicsDevice.Viewport.Width, 10), Color.DarkGray);
-			spriteBatch.Draw(pixel, new Rectangle(GraphicsDevice.Viewport.Width - 10, 0, 10, GraphicsDevice.Viewport.Height), Color.DarkGray);
+			// Ausgabe der Spielfeld-Zellen
+			for (int x = 0; x < area.Width; x++)
+			{
+				for (int y = 0; y < area.Height; y++)
+				{
+					// Ermitteln, ob diese Zelle blockiert
+					bool blocked = false;
+					for (int l = 0; l < area.Layers.Length; l++)
+						blocked |= area.Layers[l].Tiles[x, y].Blocked;
 
-			spriteBatch.Draw(pixel, new Rectangle(
-				(int)(game.Simulation.BallPosition.X * width) + 10,
-				(int)(game.Simulation.BallPosition.Y * height) + 10, 10, 10), Color.White);
+					int offsetX = (int)(x * scaleX) + 10;
+					int offsetY = (int)(y * scaleY) + 10;
 
-			int playerRadius = (int)(game.Simulation.PlayerSize * height) / 2;
-			int player = (int)(height * game.Simulation.PlayerPosition) - playerRadius + 10;
+					// Ausgabefarbe aufgrund des Block-Status ermitteln
+					Color color = Color.DarkGreen;
+					if (blocked)
+						color = Color.DarkRed;
 
-			spriteBatch.Draw(pixel, new Rectangle(0, player, 10, playerRadius * 2), Color.DarkGray);
+					// Grafische Ausgabe der Zelle
+					spriteBatch.Draw(pixel, new Rectangle(offsetX, offsetY, (int)scaleX, (int)scaleY), color);
+					spriteBatch.Draw(pixel, new Rectangle(offsetX, offsetY, 1, (int)scaleY), Color.Black);
+					spriteBatch.Draw(pixel, new Rectangle(offsetX, offsetY, (int)scaleX, 1), Color.Black);
+				}
+			}
+
+			// Ausgabe der Spielfeld-Items
+			foreach (var item in area.Items)
+			{
+				// Ermittlung der Item-Farbe.
+				Color color = Color.Yellow;
+				if (item is Player)
+					color = Color.Red;
+
+				// Positionsermittlung und Ausgabe des Spielelements.
+				int posX = (int)((item.Position.X - item.Radius) * scaleX) + 10;
+				int posY = (int)((item.Position.Y - item.Radius) * scaleY) + 10;
+				int size = (int)((item.Radius * 2) * scaleX);
+				spriteBatch.Draw(pixel, new Rectangle(posX, posY, size, size), color);
+			}
 
 			spriteBatch.End();
-
-			base.Draw(gameTime);
+		}
 		}
 	}
 }
