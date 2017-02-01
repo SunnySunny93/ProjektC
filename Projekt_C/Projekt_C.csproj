@@ -43,6 +43,10 @@
     <Compile Include="Components\InputComponent.cs" />
     <Compile Include="Components\SceneComponent.cs" />
     <Compile Include="Components\SimulationComponent.cs" />
+    <Compile Include="Klassen\World.cs" />
+    <Compile Include="Klassen\Area.cs" />
+    <Compile Include="Klassen\Layer.cs" />
+    <Compile Include="Klassen\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
