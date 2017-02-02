@@ -22,26 +22,6 @@ namespace Projekt_C.Components
 			private set; 
 		}
 
-		/*
-		private Vector2 ballVelocity = new Vector2(0.3f, 0.2f);
-
-		public Vector2 BallPosition
-		{
-			get;
-			private set;
-		}
-
-		public float PlayerPosition
-		{
-			get;
-			private set;
-		}
-
-		public float PlayerSize
-		{
-			get;
-			private set;
-		}*/
 
 		public SimulationComponent(Projekt_C game) : base(game)
 		{
