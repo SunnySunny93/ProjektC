@@ -60,14 +60,14 @@ namespace Projekt_C.Components
 			World = new World();
 
 			// Die erste Ebene mit Feldern füllen
-			Area area = new Area(2, 30, 20); // Die Ebenen (momentan 2) Zeichnen mit 30x20 Feldern
+			Area area = new Area(2, 30, 20);
 			World.Areas.Add(area);
 			for (int x = 0; x < area.Width; x++)
 			{
 				for (int y = 0; y < area.Height; y++)
 				{
-					area.Layers[0].Tiles[x, y] = new Tile(); //Hier sind 
-					area.Layers[1].Tiles[x, y] = new Tile(); //die beiden Ebenen. 
+					area.Layers[0].Tiles[x, y] = new Tile();
+					area.Layers[1].Tiles[x, y] = new Tile();
 
 					if (x == 0 || y == 0 || x == area.Width - 1 || y == area.Height - 1)
 						area.Layers[0].Tiles[x, y].Blocked = true;
@@ -75,10 +75,7 @@ namespace Projekt_C.Components
 			}
 
 			// Den Spieler einfügen.
-			Player = new Player() 
-			{ 
-				Position = new Vector2(15, 10), Radius = 0.25f  // Größe und Position bestimmen
-			};
+			Player = new Player() { Position = new Vector2(15, 10), Radius = 0.25f };
 			area.Items.Add(Player);
 
 			//Platzhalter
