@@ -34,8 +34,8 @@ namespace Projekt_C.Components
 			Area area = game.Simulation.World.Areas[0];
 
 			// Skalierungsfaktor für eine Vollbild-Darstellung der Area ausrechnen
-			float scaleX = (GraphicsDevice.Viewport.Width -10) / area.Width; //-10 damit das Spielfeld nicht aus dem Fenster läuft
-			float scaleY = (GraphicsDevice.Viewport.Height -10) / area.Height;
+			float scaleX = (GraphicsDevice.Viewport.Width - 20) / area.Width;
+			float scaleY = (GraphicsDevice.Viewport.Height - 20) / area.Height;
 
 			spriteBatch.Begin();
 
@@ -49,7 +49,7 @@ namespace Projekt_C.Components
 					for (int l = 0; l < area.Layers.Length; l++)
 						blocked |= area.Layers[l].Tiles[x, y].Blocked;
 
-					int offsetX = (int)(x * scaleX) + 10; //Anstand zum Rand
+					int offsetX = (int)(x * scaleX) + 10;
 					int offsetY = (int)(y * scaleY) + 10;
 
 					// Ausgabefarbe aufgrund des Block-Status ermitteln
