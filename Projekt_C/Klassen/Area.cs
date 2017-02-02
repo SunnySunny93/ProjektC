@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Projekt_C
+namespace Projekt_C.Klassen
 {
 	// Repräsentiert einen Teilbereich der Welt
 	internal class Area
@@ -26,14 +26,14 @@ namespace Projekt_C
 			get; 
 			private set; 
 		}
-		/*
+
 		// Auflistung aller enthaltener Items
 		public List<Item> Items 
 		{ 
 			get; 
 			private set; 
 		}
-		*/
+
 		public Area(int layers, int width, int height)
 		{
 			// Sicherheitsprüfungen
@@ -51,7 +51,7 @@ namespace Projekt_C
 				Layers[l] = new Layer(width, height);
 
 			// Leere Liste der Spielelemente.
-			// Items = new List<Item>();
+			Items = new List<Item>();
 		}
 
 		/// <summary>

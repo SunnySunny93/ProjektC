@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Projekt_C
+namespace Projekt_C.Klassen
 {
 	// Repräsentiert eine Kachel einer Area.
 	internal class Tile

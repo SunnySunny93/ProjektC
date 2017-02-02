@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Projekt_C
+namespace Projekt_C.Klassen
 {
 	/// <summary>
 	/// Repräsentiert eine Objekt-Schicht innerhalb eines Bereichs.

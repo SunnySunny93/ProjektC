@@ -10,7 +10,7 @@ namespace Projekt_C.Components
 		// Rundungsfehler bei Berechnungen verhindern.
 		private float gap = 0.00001f;
 
-		private Game1 game;
+		private Projekt_C game;
 
 		//Referenzen auf aktuelle Welt und Spieler
 		public World World { 
@@ -43,7 +43,7 @@ namespace Projekt_C.Components
 			private set;
 		}*/
 
-		public SimulationComponent(Game1 game) : base(game)
+		public SimulationComponent(Projekt_C game) : base(game)
 		{
 			this.game = game;
 
@@ -80,8 +80,8 @@ namespace Projekt_C.Components
 
 			//Platzhalter
 			// Einen Diamanten einfügen.
-			Diamant diamant = new Diamant() { Position = new Vector2(10, 10), Radius = 0.25f };
-			area.Items.Add(diamant);
+			//Diamant diamant = new Diamant() { Position = new Vector2(10, 10), Radius = 0.25f };
+			//area.Items.Add(diamant);
 		}
 
 		public override void Update(GameTime gameTime)

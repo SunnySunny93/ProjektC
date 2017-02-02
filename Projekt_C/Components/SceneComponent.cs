@@ -7,11 +7,11 @@ namespace Projekt_C.Components
 {
 	internal class SceneComponent : DrawableGameComponent
 	{
-		private readonly Game1 game;		// Für spätere Serveranbindung. Verhindert Manipulation (Private für online)
+		private readonly Projekt_C game;		// Für spätere Serveranbindung. Verhindert Manipulation (Private für online)
 		private SpriteBatch spriteBatch; 	// Braucht man für jegliche Art von Darstellung
 		private Texture2D pixel;			// Nutzt der SpriteBatch
 
-		public SceneComponent (Game1 game) : base(game)
+		public SceneComponent (Projekt_C game) : base(game)
 		{
 			this.game = game;
 		}
@@ -55,7 +55,7 @@ namespace Projekt_C.Components
 					// Ausgabefarbe aufgrund des Block-Status ermitteln
 					Color color = Color.DarkGreen;
 					if (blocked)
-						color = Color.DarkRed;
+						color = Color.Blue;
 
 					// Grafische Ausgabe der Zelle
 					spriteBatch.Draw(pixel, new Rectangle(offsetX, offsetY, (int)scaleX, (int)scaleY), color);
@@ -80,7 +80,6 @@ namespace Projekt_C.Components
 			}
 
 			spriteBatch.End();
-		}
 		}
 	}
 }

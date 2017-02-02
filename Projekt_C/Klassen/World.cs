@@ -1,5 +1,7 @@
 ﻿using System;
-namespace Projekt_C
+using System.Collections.Generic;
+
+namespace Projekt_C.Klassen
 {
 	internal class World
 	{

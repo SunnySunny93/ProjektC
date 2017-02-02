@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Projekt_C.Klassen;
 
 namespace Projekt_C
 {
@@ -12,7 +13,7 @@ namespace Projekt_C
 			private set;
 		}
 
-		public InputComponent(Game1 game) : base(game)
+		public InputComponent(Projekt_C game) : base(game)
 		{
 		}
 

@@ -20,11 +20,11 @@ namespace Projekt_C
 	static class Program
 #endif
 	{
-		private static Game1 game;
+		private static Projekt_C game;
 
 		internal static void RunGame()
 		{
-			game = new Game1();
+			game = new Projekt_C();
 			game.Run();
 #if !__IOS__ && !__TVOS__
 			game.Dispose();

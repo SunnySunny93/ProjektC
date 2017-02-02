@@ -4,13 +4,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage; ///Lesen und schreiben von Files
+using Projekt_C.Components;
 
 namespace Projekt_C
 {
 	/// <summary>
 	/// This is the main type for your game.
 	/// </summary>
-	internal class Game1 : Game
+	internal class Projekt_C : Game
 	{
 		GraphicsDeviceManager graphics;
 
@@ -34,7 +35,7 @@ namespace Projekt_C
 
 		///SpriteBatch spriteBatch; In SceneComponent verschoben.
 
-		public Game1()
+		public Projekt_C()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";

@@ -47,6 +47,14 @@
     <Compile Include="Klassen\Area.cs" />
     <Compile Include="Klassen\Layer.cs" />
     <Compile Include="Klassen\Tile.cs" />
+    <Compile Include="Klassen\Item.cs" />
+    <Compile Include="Klassen\ICollidable.cs" />
+    <Compile Include="Klassen\Character.cs" />
+    <Compile Include="Klassen\Player.cs" />
+    <Compile Include="Klassen\IInteractor.cs" />
+    <Compile Include="Klassen\IAttackable.cs" />
+    <Compile Include="Klassen\IAttacker.cs" />
+    <Compile Include="Klassen\IInteractable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
