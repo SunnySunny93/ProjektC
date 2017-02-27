@@ -55,6 +55,8 @@
     <Compile Include="Klassen\IAttackable.cs" />
     <Compile Include="Klassen\IAttacker.cs" />
     <Compile Include="Klassen\IInteractable.cs" />
+    <Compile Include="Klassen\Schwertkaempfer.cs" />
+    <Compile Include="Klassen\Bogenschuetze.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
