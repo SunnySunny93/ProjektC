@@ -60,10 +60,10 @@ namespace Projekt_C.Klassen
 		{
 			AttackableItems = new List<Item>();
 			InteractableItems = new List<Item>();
-			MaxHitpoints = 4;
-			Hitpoints = 4;
-			AttackRange = 1.5f;
-			AttackValue = 1;
+			MaxHitpoints = 7;
+			Hitpoints = 7;
+			AttackRange = 2f;
+			AttackValue = 2;
 			InteractionRange = 0.5f;
 		}
 	}

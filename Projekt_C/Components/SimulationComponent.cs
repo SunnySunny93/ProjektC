@@ -22,6 +22,17 @@ namespace Projekt_C.Components
 			private set; 
 		}
 
+		public Bogenschuetze Bogenschuetze
+		{
+			get;
+			private set;
+		}
+
+		public Schwertkaempfer Schwertkaempfer
+		{
+			get;
+			private set;
+		}
 		/*
 		private Vector2 ballVelocity = new Vector2(0.3f, 0.2f);
 
@@ -71,12 +82,20 @@ namespace Projekt_C.Components
 
 					if (x == 0 || y == 0 || x == area.Width - 1 || y == area.Height - 1)
 						area.Layers[0].Tiles[x, y].Blocked = true;
+
+					if ((x== 14 || x==15 )&& y!= 10)
+						area.Layers[0].Tiles[x, y].Blocked = true;
 				}
+
 			}
 
 			// Den Spieler einfügen.
-			Player = new Player() { Position = new Vector2(15, 10), Radius = 0.25f };
+			Player = new Player() { Position = new Vector2(10, 10), Radius = 0.25f };
 			area.Items.Add(Player);
+			Bogenschuetze = new Bogenschuetze(){ Position = new Vector2(20, 10), Radius = 0.25f };
+			area.Items.Add(Bogenschuetze);
+			Schwertkaempfer = new Schwertkaempfer() { Position = new Vector2(25, 10), Radius = 0.25f };
+			area.Items.Add(Schwertkaempfer);
 
 			//Platzhalter
 			// Einen Diamanten einfügen.

@@ -62,8 +62,8 @@ namespace Projekt_C.Klassen
 			InteractableItems = new List<Item>();
 			MaxHitpoints = 10;
 			Hitpoints = 10;
-			AttackRange = 0.5f;
-			AttackValue = 1;
+			AttackRange = 1f;
+			AttackValue = 3;
 			InteractionRange = 0.5f;
 		}
 	}

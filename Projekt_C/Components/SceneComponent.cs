@@ -71,6 +71,10 @@ namespace Projekt_C.Components
 				Color color = Color.Yellow;
 				if (item is Player)
 					color = Color.Red;
+				if (item is Bogenschuetze)
+					color = Color.Pink;
+				if (item is Schwertkaempfer)
+					color = Color.Brown;
 
 				// Positionsermittlung und Ausgabe des Spielelements.
 				int posX = (int)((item.Position.X - item.Radius) * scaleX) + 10;
